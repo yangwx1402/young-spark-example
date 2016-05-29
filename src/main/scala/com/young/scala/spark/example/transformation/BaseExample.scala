@@ -9,4 +9,6 @@ trait BaseExample {
 
   private[example] val sparkContext = new SparkContext("local[2]","young-example")
 
+  sparkContext.setLogLevel("INFO")
+
 }
