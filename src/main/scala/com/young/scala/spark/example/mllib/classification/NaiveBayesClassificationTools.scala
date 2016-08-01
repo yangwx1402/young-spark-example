@@ -5,4 +5,5 @@ package com.young.scala.spark.example.mllib.classification
  */
 class NaiveBayesClassificationTools {
 
+
 }
