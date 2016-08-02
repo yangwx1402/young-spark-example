@@ -12,5 +12,4 @@ trait BaseDataFrame {
   sparkConf.setAppName("young-example")
   sparkConf.setMaster("local[2]")
 
-  val sparkSession = SparkSession.builder().config(sparkConf).getOrCreate()
 }
