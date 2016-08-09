@@ -1,9 +1,8 @@
+/*
 package com.young.scala.spark.example.streaming
 import org.apache.spark.sql.SparkSession
 
-/**
- * Created by dell on 2016/8/1.
- */
+
 object StructuredStreaming extends BaseDataFrame{
   def worcount(session:SparkSession): Unit ={
     import session.implicits._
@@ -20,3 +19,4 @@ object StructuredStreaming extends BaseDataFrame{
     StructuredStreaming.worcount(sparkSession)
   }
 }
+*/

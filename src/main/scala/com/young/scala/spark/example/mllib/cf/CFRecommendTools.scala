@@ -28,12 +28,33 @@ class CFRecommendTools {
 
   def getModel: MatrixFactorizationModel = if (model == null) throw new Exception("you must training model first") else model
 
+  /**
+   * 评分预测
+   * @param userId
+   * @param itemId
+   * @return
+   */
   def predict(userId: Int, itemId: Int) = getModel.predict(userId, itemId)
 
+  /**
+   * 评分预测
+   * @param userItems
+   * @return
+   */
   def predict(userItems: RDD[(Int, Int)]): RDD[Rating] = getModel.predict(userItems)
 
+  /**
+   * 数据转换,将netflix测试数据转换成Rating数据模型,方便进行模型的训练
+   * @param ratings
+   * @return
+   */
   def trasferData(ratings: RDD[Rating]): RDD[(Int, Int)] = ratings.map(rating => (rating.user, rating.product))
 
+  /**
+   * 算法评估,针对模型对实际数据进行预测,计算预测偏差
+   * @param testData
+   * @return
+   */
   def mse(testData: RDD[Rating]): Double = {
     val trasferTestData = trasferData(testData)
     val orignData = testData.map(rating => ((rating.user, rating.product), rating.rating))
@@ -49,6 +70,13 @@ class CFRecommendTools {
 
 object CFRecommendTools extends BaseExample {
 
+  /**
+   * 读取数据
+   * @param dataPath
+   * @param trasfer
+   * @param sc
+   * @return
+   */
   def getData(dataPath: String, trasfer: (String => Rating), sc: SparkContext): RDD[Rating] = {
     sc.textFile(dataPath,4).map(line => trasfer(line))
   }

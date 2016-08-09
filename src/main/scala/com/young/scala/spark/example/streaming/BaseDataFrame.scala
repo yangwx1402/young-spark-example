@@ -1,7 +1,6 @@
 package com.young.scala.spark.example.streaming
 
 import org.apache.spark.SparkConf
-import org.apache.spark.sql.SparkSession
 
 /**
  * Created by dell on 2016/8/1.

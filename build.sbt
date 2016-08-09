@@ -11,7 +11,7 @@ resolvers ++= Seq("Typesafe Repository" at "http://repo.typesafe.com/typesafe/re
   "maven-restlet" at "http://maven.restlet.org")
 
 libraryDependencies ++= {
-  val spark_version = "2.0.0"
+  val spark_version = "1.6.2"
   Seq(
     "org.apache.spark" %% "spark-core" % spark_version,
     "org.apache.spark" %% "spark-sql" % spark_version,
@@ -19,6 +19,8 @@ libraryDependencies ++= {
     "org.apache.spark" %% "spark-mllib" % spark_version,
     "org.apache.spark" %% "spark-hive" % spark_version,
     "org.apache.spark" %% "spark-yarn" % spark_version,
-    "org.apache.spark" %% "spark-repl" % spark_version
+    "org.apache.spark" %% "spark-repl" % spark_version,
+    "org.apache.spark" %% "spark-streaming-kafka" % spark_version,
+    "org.apache.kafka" % "kafka-clients" % "0.9.0.0"
   )
 }
