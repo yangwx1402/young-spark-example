@@ -21,6 +21,7 @@ libraryDependencies ++= {
     "org.apache.spark" %% "spark-yarn" % spark_version,
     "org.apache.spark" %% "spark-repl" % spark_version,
     "org.apache.spark" %% "spark-streaming-kafka" % spark_version,
-    "org.apache.kafka" % "kafka-clients" % "0.9.0.0"
+    "org.apache.kafka" % "kafka-clients" % "0.9.0.0",
+    "redis.clients" % "jedis" % "2.8.1"
   )
 }
