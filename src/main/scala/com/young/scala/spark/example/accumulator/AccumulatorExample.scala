@@ -16,6 +16,6 @@ object AccumulatorExample extends BaseExample {
     dataRdd.foreach(x => {
       accum.add(1)
     })
-    print(accum.value)
+    println("----"+accum.value)
   }
 }

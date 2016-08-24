@@ -18,7 +18,6 @@ object KafkaStreaming extends BaseDataFrame{
       "zookeeper.connection.timeout.ms" -> "10000")
        val kafkaStreaming  = KafkaUtils.createStream[Int,String,IntDecoder,StringDecoder](streamingContext,kafkaParams,topicAndPartitaions,StorageLevel.MEMORY_AND_DISK_SER_2)
        kafkaStreaming.foreachRDD(_.foreach(println _))
-
        streamingContext.start()
        streamingContext.awaitTermination()
      }
@@ -26,7 +25,7 @@ object KafkaStreaming extends BaseDataFrame{
   def main(args: Array[String]) {
     val sparkContext = new SparkContext(sparkConf)
     val streamingContext = new StreamingContext(sparkContext,Duration(10000))
-    val map = Map[String,Int]("test"->1)
+    val map = Map[String,Int]("test"->2)
     println(map)
     val zk = "115.29.47.216:2181"
     KafkaStreaming.processKafkaMessage(streamingContext,zk,"test",map)
