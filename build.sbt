@@ -2,7 +2,7 @@ name := "young-spark-example"
 
 version := "1.0"
 
-scalaVersion := "2.11.6"
+scalaVersion := "2.10.6"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
@@ -11,7 +11,7 @@ resolvers ++= Seq("Typesafe Repository" at "http://repo.typesafe.com/typesafe/re
   "maven-restlet" at "http://maven.restlet.org")
 
 libraryDependencies ++= {
-  val spark_version = "1.6.2"
+  val spark_version = "1.5.0"
   Seq(
     "org.apache.spark" %% "spark-core" % spark_version,
     "org.apache.spark" %% "spark-sql" % spark_version,

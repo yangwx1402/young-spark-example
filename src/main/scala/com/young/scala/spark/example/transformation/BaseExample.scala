@@ -9,10 +9,12 @@ trait BaseExample {
 
   private[example] val sparkConf = new SparkConf()
   sparkConf.setAppName("young-example")
-  sparkConf.setMaster("local[2]")
+  sparkConf.setMaster("spark://thadoop1:7077")
+  sparkConf.set("mapreduce.app-submission.cross-platform", "true")
+  sparkConf.set("deploy-mode","client")
 
   private[example] val sparkContext = new SparkContext(sparkConf)
 
-  sparkContext.setLogLevel("INFO")
+  sparkContext.setLogLevel("DEBUG")
 
 }
